@@ -8,7 +8,6 @@ import { About } from "@/components/sections/About";
 import { Abilities } from "@/components/sections/Abilities";
 import { Career } from "@/components/sections/Career";
 import { Projects } from "@/components/sections/Projects";
-// import { Vault } from "@/components/sections/Vault";
 import { Contact } from "@/components/sections/Contact";
 
 export default function HomePage() {
@@ -24,7 +23,6 @@ export default function HomePage() {
         <Abilities />
         <Career />
         <Projects />
-        {/* <Vault /> */}
         <Contact />
       </main>
       <Footer />
