@@ -1,9 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { siteConfig, education } from "@/lib/data";
 import { cn } from "@/lib/cn";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+
+const TechOrb = dynamic(() => import("@/components/ui/TechOrb").then((mod) => mod.TechOrb), {
+  ssr: false,
+});
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -84,7 +90,7 @@ function LobbyHeader() {
   const ss = String(elapsed % 60).padStart(2, "0");
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease }}
@@ -115,7 +121,7 @@ function LobbyHeader() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -124,7 +130,7 @@ function LobbyHeader() {
    ============================================================ */
 function SplashPanel() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, x: -24 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.9, delay: 0.1, ease }}
@@ -136,16 +142,13 @@ function SplashPanel() {
 
         {/* Splash image — hex framed */}
         <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/avatar.png"
-            alt=""
-            loading="eager"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).style.display = "none";
-            }}
+            alt="Nguyễn Thọ Hiếu - Portrait"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover object-center"
           />
           {/* Cinematic gradient over splash */}
           <div className="absolute inset-0 bg-gradient-to-t from-void-950 via-void-950/40 to-transparent" />
@@ -167,7 +170,7 @@ function SplashPanel() {
             </svg>
           </div>
           {/* Scanline */}
-          <motion.div
+          <m.div
             initial={{ y: "-100%" }}
             animate={{ y: "100%" }}
             transition={{ duration: 3.5, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
@@ -205,7 +208,7 @@ function SplashPanel() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -214,7 +217,7 @@ function SplashPanel() {
    ============================================================ */
 function InfoPanel() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, x: 24 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.9, delay: 0.25, ease }}
@@ -300,7 +303,7 @@ function InfoPanel() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -322,7 +325,7 @@ function StatCell({ label, value }: { label: string; value: string }) {
    ============================================================ */
 function TechBench() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9, delay: 0.45, ease }}
@@ -348,7 +351,7 @@ function TechBench() {
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -364,7 +367,7 @@ function BenchHex({
   index: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 + index * 0.04, ease }}
@@ -406,7 +409,7 @@ function BenchHex({
       <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 px-2 text-[9px] tracking-[0.2em] uppercase text-hex-300/70 font-mono opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
         {name}
       </span>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -430,6 +433,9 @@ function BackdropFX() {
         aria-hidden
         className="absolute top-1/2 inset-x-0 h-px bg-gradient-to-r from-transparent via-hex-600/30 to-transparent"
       />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <TechOrb />
+      </div>
     </>
   );
 }

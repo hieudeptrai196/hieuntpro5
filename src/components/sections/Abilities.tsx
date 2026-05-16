@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { skills, type SkillKey } from "@/lib/data";
 import { cn } from "@/lib/cn";
@@ -36,7 +36,7 @@ export function Abilities() {
           <div className="lg:col-span-4 flex lg:flex-col gap-3">
             {order.map((key) => {
               const isActive = key === active;
-              const m = meta[key];
+              const skillMeta = meta[key];
               return (
                 <button
                   key={key}
@@ -51,7 +51,7 @@ export function Abilities() {
                   )}
                   aria-pressed={isActive}
                 >
-                  <AbilityIcon letter={m.tone} active={isActive} />
+                  <AbilityIcon letter={skillMeta.tone} active={isActive} />
                   <div className="min-w-0 hidden sm:block">
                     <div
                       className={cn(
@@ -59,7 +59,7 @@ export function Abilities() {
                         isActive ? "text-hex-300" : "text-hex-300/50",
                       )}
                     >
-                      {m.tag}
+                      {skillMeta.tag}
                     </div>
                     <div
                       className={cn(
@@ -71,12 +71,12 @@ export function Abilities() {
                     </div>
                   </div>
                   {isActive && (
-                    <motion.span
+                    <m.span
                       layoutId="ability-arrow"
                       className="hidden lg:block absolute right-3 top-1/2 -translate-y-1/2 text-hex-400"
                     >
                       ▸
-                    </motion.span>
+                    </m.span>
                   )}
                 </button>
               );
@@ -87,7 +87,7 @@ export function Abilities() {
           <div className="lg:col-span-8">
             <div className="relative bg-gradient-to-b from-void-900 to-void-950 border border-hex-600/40 clip-bevel p-7 sm:p-9 min-h-[420px] corner-bracket">
               <AnimatePresence mode="wait">
-                <motion.div
+                <m.div
                   key={active}
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export function Abilities() {
 
                   <ul className="space-y-5">
                     {current.items.map((item, i) => (
-                      <motion.li
+                      <m.li
                         key={item.label}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -121,10 +121,10 @@ export function Abilities() {
                         <p className="pl-5 text-sm text-hex-100/65 leading-relaxed">
                           {item.value}
                         </p>
-                      </motion.li>
+                      </m.li>
                     ))}
                   </ul>
-                </motion.div>
+                </m.div>
               </AnimatePresence>
             </div>
           </div>

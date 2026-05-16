@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/data";
+import { FramerProvider } from "@/components/providers/FramerProvider";
 
 const display = Cormorant_Garamond({
   subsets: ["latin", "vietnamese"],
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export const viewport: Viewport = {
@@ -63,7 +67,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen">
         <div className="grain" aria-hidden />
-        {children}
+        <FramerProvider>{children}</FramerProvider>
       </body>
     </html>
   );

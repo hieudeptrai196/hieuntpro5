@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 /**
  * HextechLoader — first-paint cinematic loader (LoL champion-select intake).
@@ -97,7 +97,7 @@ export function HextechLoader() {
       <div className="relative flex flex-col items-center px-6 max-w-md w-full">
         {/* Sigil */}
         <div className="relative w-20 h-20 mb-7">
-          <motion.svg
+          <m.svg
             viewBox="0 0 80 80"
             className="w-full h-full"
             animate={{ rotate: 360 }}
@@ -115,9 +115,9 @@ export function HextechLoader() {
               stroke="#785a28"
               strokeWidth="0.8"
             />
-          </motion.svg>
+          </m.svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
+            <m.div
               animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
               className="w-8 h-8 rounded-full bg-hex-400/30 blur-sm"
@@ -156,7 +156,7 @@ export function HextechLoader() {
             }}
             className="absolute inset-y-0 left-0 bg-gradient-to-r from-hex-600 via-hex-400 to-hex-300"
           />
-          <motion.div
+          <m.div
             initial={{ x: "-100%" }}
             animate={{ x: "100%" }}
             transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { experiences } from "@/lib/data";
 import { cn } from "@/lib/cn";
@@ -57,7 +57,7 @@ function TimelineEntry({
   const tag = "tag" in exp ? exp.tag : null;
 
   return (
-    <motion.li
+    <m.li
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -103,6 +103,6 @@ function TimelineEntry({
           </div>
         </div>
       </article>
-    </motion.li>
+    </m.li>
   );
 }

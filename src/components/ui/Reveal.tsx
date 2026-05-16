@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { m, type Variants } from "framer-motion";
 import { type ReactNode } from "react";
 
 interface RevealProps {
@@ -21,7 +21,7 @@ const variants: Variants = {
 
 export function Reveal({ children, delay = 0, y = 24, className }: RevealProps) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="show"
@@ -37,7 +37,7 @@ export function Reveal({ children, delay = 0, y = 24, className }: RevealProps) 
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -51,7 +51,7 @@ export function StaggerGroup({
   stagger?: number;
 }) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="show"
@@ -62,7 +62,7 @@ export function StaggerGroup({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -74,8 +74,8 @@ export function StaggerItem({
   className?: string;
 }) {
   return (
-    <motion.div className={className} variants={variants}>
+    <m.div className={className} variants={variants}>
       {children}
-    </motion.div>
+    </m.div>
   );
 }

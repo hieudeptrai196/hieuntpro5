@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/cn";
 import { navLinks, siteConfig } from "@/lib/data";
 
@@ -28,7 +28,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <motion.header
+    <m.header
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -68,7 +68,7 @@ export function Navbar() {
               >
                 {l.label}
                 {active === l.id && (
-                  <motion.span
+                  <m.span
                     layoutId="nav-active"
                     className="absolute left-2 right-2 -bottom-0.5 h-px bg-hex-400"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
@@ -128,7 +128,7 @@ export function Navbar() {
           </ul>
         </div>
       )}
-    </motion.header>
+    </m.header>
   );
 }
 
