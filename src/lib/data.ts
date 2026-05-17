@@ -120,6 +120,7 @@ export const experiences = [
     projects: [
       {
         name: "Core IPCC Voice System",
+        link: "https://vnptmedia.vn/dich-vu-v2/phan-mem/202004/ipcc-multimedia-21b1a5e/",
         body:
           "Developed and managed a large-scale telecommunications user authorization system. Optimized data flows and connectivity to ensure stability for voice services, supporting thousands of concurrent sessions between agents and customers.",
       },
@@ -162,13 +163,11 @@ export const experiences = [
       {
         name: "E-commerce System — MAG",
         link: "https://market.orilab.jp/",
-        award: "Outstanding Project 2025",
         body:
           "Developed and optimized a large-scale platform using Elasticsearch to accelerate search and data retrieval. Efficiently handled Flash Sales with surging traffic, ensuring stable system operation and fast response times.",
       },
       {
         name: "AI Chatbot Integration",
-        award: "Outstanding Project 2026",
         body:
           "Implemented Chatbot solutions based on LLM models (ChatGPT, Gemini) and PostgreSQL for conversation management. Automated over 70% of customer response processes, supporting intelligent interaction and optimizing operational efficiency through automated workflows.",
       },
