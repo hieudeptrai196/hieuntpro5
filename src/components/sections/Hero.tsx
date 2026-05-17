@@ -460,7 +460,7 @@ function InfoPanel() {
             Software Developer
           </h2>
           <p className="text-xs tracking-[0.2em] uppercase text-hex-300/70 font-mono mb-6">
-            Backend · Node.js · PHP · 4 Years
+            Backend · Node.js · PHP · 3+ Years
           </p>
 
           {/* Role tags (like LoL role icons) */}
@@ -489,7 +489,7 @@ function InfoPanel() {
 
           {/* Stat strip */}
           <div className="grid grid-cols-2 gap-px bg-hex-600/30 border border-hex-600/30 mb-7 clip-bevel-sm">
-            <StatCell label="Years" value="04" />
+            <StatCell label="Years" value="03+" />
             <StatCell label="Companies" value="03" />
           </div>
 

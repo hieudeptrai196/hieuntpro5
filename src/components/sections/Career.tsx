@@ -1,6 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
+import Image from "next/image";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { experiences } from "@/lib/data";
 import { cn } from "@/lib/cn";
@@ -76,22 +77,37 @@ function TimelineEntry({
 
       <article className="relative bg-gradient-to-r from-void-900/80 via-void-900/50 to-transparent border border-hex-600/30 hover:border-hex-400/60 transition-colors clip-bevel-sm p-5 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-          <div className="min-w-0">
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-[10px] tracking-[0.35em] uppercase text-hex-300/70 font-mono">
-                Campaign · 0{experiences.length - index}
-              </span>
-              {tag && (
-                <span className="px-2 py-0.5 text-[9px] tracking-[0.25em] uppercase font-bold text-cyan-glow border border-cyan-glow/40 bg-cyan-glow/10 clip-bevel-sm">
-                  {tag}
+          <div className="min-w-0 flex items-start gap-4">
+            {/* Company logo */}
+            {"logo" in exp && exp.logo && (
+              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 relative rounded-sm overflow-hidden bg-void-800 border border-hex-600/25 p-1">
+                <Image
+                  src={exp.logo as string}
+                  alt={`${exp.company} logo`}
+                  fill
+                  sizes="48px"
+                  className="object-contain"
+                />
+              </div>
+            )}
+
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-[10px] tracking-[0.35em] uppercase text-hex-300/70 font-mono">
+                  Campaign · 0{experiences.length - index}
                 </span>
-              )}
-            </div>
-            <h3 className="display-h text-xl sm:text-2xl text-hex-shine leading-tight">
-              <a href={`${exp.link}`} target="_blank">{exp.company}</a>
-            </h3>
-            <div className="mt-1 text-sm text-hex-200/80">
-              {exp.position}
+                {tag && (
+                  <span className="px-2 py-0.5 text-[9px] tracking-[0.25em] uppercase font-bold text-cyan-glow border border-cyan-glow/40 bg-cyan-glow/10 clip-bevel-sm">
+                    {tag}
+                  </span>
+                )}
+              </div>
+              <h3 className="display-h text-xl sm:text-2xl text-hex-shine leading-tight">
+                <a href={`${exp.link}`} target="_blank">{exp.company}</a>
+              </h3>
+              <div className="mt-1 text-sm text-hex-200/80">
+                {exp.position}
+              </div>
             </div>
           </div>
 

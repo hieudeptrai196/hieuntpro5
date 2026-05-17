@@ -6,9 +6,9 @@
 export const siteConfig = {
   name: "Nguyễn Thọ Hiếu",
   title: "Developer / Software Engineer",
-  tagline: "Backend Developer · 4 years forging high-performance systems",
+  tagline: "Backend Developer · 3+ years forging high-performance systems",
   summary:
-    "Developer (Node.js, PHP) with 4 years of experience in developing high-performance, large-scale systems (Telecommunications and Ecommerce).",
+    "Developer (Node.js, PHP) with 3+ years of experience in developing high-performance, large-scale systems (Telecommunications and Ecommerce).",
   phone: "0834778196",
   email: "hieulatoi1962@gmail.com",
   linkedin: "https://www.linkedin.com/in/hieunguyen196",
@@ -95,6 +95,7 @@ export const experiences = [
   {
     id: "vnpt-media",
     company: "VNPT - Vietnam Posts and Telecommunications Group",
+    logo: "https://cdn.hieunt.site/vnpt_logo.png",
     link: "https://vnpt.com.vn/",
     position: "Backend Developer",
     period: "10/2025 - Now",
@@ -137,6 +138,7 @@ export const experiences = [
   {
     id: "newwave",
     company: "Newwave Solutions",
+    logo: "https://cdn.hieunt.site/logo-nws.png",
     position: "Backend Developer",
     link: "https://newwave.vn",
     period: "07/2022 - 10/2025",
@@ -179,6 +181,7 @@ export const experiences = [
   {
     id: "smart-osc",
     company: "Smart OSC",
+    logo: "https://cdn.hieunt.site/smartosc_logo.webp",
     position: "Backend Developer Intern",
     link: "https://smartosc.com",
     period: "01/2022 - 06/2022",

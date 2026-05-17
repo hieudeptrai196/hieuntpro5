@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     "VNPT - Vietnam Posts and Telecommunications Group", "Newwave Solutions",
     "hieunt.site",
   ],
+  verification: {
+    google: "PASTE_YOUR_VERIFICATION_CODE_HERE", // ← thay bằng code từ Search Console
+  },
   authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
