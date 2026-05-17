@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/data";
 import { FramerProvider } from "@/components/providers/FramerProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 const display = Cormorant_Garamond({
   subsets: ["latin", "vietnamese"],
@@ -147,6 +148,17 @@ export default function RootLayout({
       className={`${display.variable} ${inter.variable} ${mono.variable}`}
     >
       <head>
+        {/* CDN preconnect — giảm latency cho mọi request đến cdn.hieunt.site */}
+        <link rel="preconnect" href="https://cdn.hieunt.site" />
+        {/* Preload ảnh hero (LCP element) — browser tải trước khi render */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          rel="preload"
+          as="image"
+          href="https://cdn.hieunt.site/avatar.jpg"
+          // @ts-expect-error fetchpriority is valid HTML but not yet in TS lib
+          fetchpriority="high"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -155,6 +167,7 @@ export default function RootLayout({
       <body className="min-h-screen">
         <div className="grain" aria-hidden />
         <FramerProvider>{children}</FramerProvider>
+        <Analytics />
       </body>
     </html>
   );

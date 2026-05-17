@@ -75,6 +75,46 @@ const features = [
     title: "PWA Manifest",
     desc: "App có thể \"Add to Home Screen\" trên thiết bị di động. Background và theme color khớp với void-950 (#010a13).",
   },
+  {
+    id: "09",
+    title: "Custom Hextech Cursor",
+    desc: "Con trỏ chuột tuỳ chỉnh gồm dot nhỏ (cyan, bám sát) và ring ngoài (lag lerp). Hover vào link/button → ring mở rộng và đổi sang gold glow. Tự tắt trên touch device.",
+  },
+  {
+    id: "10",
+    title: "Section Navigation Dots",
+    desc: "Cột 5 chấm điều hướng cố định bên phải màn hình (chỉ desktop). Section đang xem highlight cyan. Hover hiện tooltip tên section. Click scroll mượt đến section tương ứng.",
+  },
+  {
+    id: "11",
+    title: "Scroll-to-top Button",
+    desc: "Nút hình thoi xuất hiện sau khi scroll > 400px. Click cuộn mượt về đầu trang. Tự ẩn khi đang ở trên cùng.",
+  },
+  {
+    id: "12",
+    title: "Copy Email / Phone",
+    desc: "Nút Copy nhỏ trong card Email và Phone tại section Contact. Click copy vào clipboard → animation xác nhận \"✓ Đã copy\" ngay tại chỗ.",
+  },
+  {
+    id: "13",
+    title: "Konami Code Easter Egg",
+    desc: "Gõ ↑↑↓↓←→←→BA để kích hoạt popup Champion Status với quote kiểu LoL và countdown bar 6 giây. Dành cho những ai tò mò.",
+  },
+  {
+    id: "14",
+    title: "Site Notice — Cache Hint",
+    desc: "Thông báo nhỏ góc dưới trái, hiện 2.8 giây sau khi vào trang lần đầu (dùng sessionStorage). Giải thích cache giúp trang tải nhanh hơn từ lần sau. Tự đóng sau 9 giây.",
+  },
+  {
+    id: "15",
+    title: "PerfBadge — Chẩn đoán hiệu năng",
+    desc: "Widget góc trên phải hiện sau khi trang load xong. Hiển thị tốc độ tải, số file, dung lượng và loại mạng. Click mở popup đầy đủ với 4 nhóm chỉ số, giải thích phương pháp đo bằng Browser Performance API.",
+  },
+  {
+    id: "16",
+    title: "Vercel Analytics",
+    desc: "Tích hợp @vercel/analytics — thu thập page views và Web Vitals thực tế trong Vercel Dashboard. Không bên thứ ba, không cookie tracking, miễn phí.",
+  },
 ];
 
 // ── Tối ưu Performance ──────────────────────────────────────────────────────
@@ -136,6 +176,13 @@ const perfOptimizations: Optimization[] = [
     impact: "Ảnh gốc zero-egress, không qua Vercel",
     how: "Upload toàn bộ ảnh portfolio lên Cloudflare R2 bucket (hieunt-assets). Gắn custom domain cdn.hieunt.site trỏ thẳng vào bucket. Cập nhật src của next/image từ /avatar.jpg sang https://cdn.hieunt.site/avatar.jpg. Thêm remotePatterns trong next.config.ts để cho phép next/image optimize ảnh từ domain ngoài.",
     effect: "R2 có zero egress fee — serve file ra không tốn tiền bandwidth, khác với hầu hết cloud storage. Ảnh gốc không đi qua Vercel origin nữa: Browser → Cloudflare Edge (R2) → trả ảnh. next/image vẫn nhận ảnh từ R2, optimize → WebP/AVIF, và kết quả được cache tại Cloudflare edge theo Cache Rule ở trên.",
+  },
+  {
+    title: "Preload ảnh hero (LCP hint)",
+    badge: "Hiệu năng",
+    impact: "LCP ↓ ~200–400ms",
+    how: "Thêm <link rel=\"preload\" as=\"image\" fetchpriority=\"high\"> cho avatar.jpg vào thẳng <head> trong layout.tsx. Đồng thời thêm <link rel=\"preconnect\" href=\"https://cdn.hieunt.site\"> để browser thiết lập kết nối TCP/TLS đến CDN trước khi cần.",
+    effect: "Ảnh hero (portrait slider đầu tiên) là LCP element — phần tử lớn nhất visible khi trang load. Nếu không preload, browser chỉ biết đến ảnh này sau khi parse xong HTML và CSS → mất ~200–500ms bổ sung. Preload hint báo browser tải ngay từ đầu, song song với các tài nguyên khác → LCP giảm ~200–400ms.",
   },
 ];
 
@@ -246,7 +293,7 @@ export default function DocumentPage() {
           </h1>
           <p className="text-sm text-hex-100/60 leading-relaxed max-w-2xl">
             Trang này mô tả kiến trúc kỹ thuật, các tối ưu hiệu năng đã thực hiện và
-            tính năng của portfolio. Xây dựng với Next.js App Router, thiết kế Hextech,
+            16 tính năng của portfolio. Xây dựng với Next.js App Router, thiết kế Hextech,
             deploy trên Vercel + Cloudflare CDN + R2.
           </p>
           <div className="pt-2">
@@ -422,7 +469,7 @@ export default function DocumentPage() {
         {/* Footer */}
         <footer className="pt-4 pb-2 border-t border-hex-600/20 text-[11px] font-mono text-hex-300/40 flex items-center justify-between flex-wrap gap-2">
           <span>hieunt.site · {siteConfig.name}</span>
-          <span>Cập nhật: 2025 · v2.0</span>
+          <span>Cập nhật: 2026-05 · v2.1</span>
         </footer>
       </div>
     </main>

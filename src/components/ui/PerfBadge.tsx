@@ -122,11 +122,11 @@ export function PerfBadge() {
       <AnimatePresence>
         {visible && stats && (
           <m.div
-            initial={{ opacity: 0, y: 12, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.95 }}
+            initial={{ opacity: 0, y: -12, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0,   scale: 1   }}
+            exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-20 right-6 z-40 font-mono"
+            className="fixed top-20 right-6 z-40 font-mono"
           >
             <div
               className="relative bg-void-950/95 border border-hex-600/40 backdrop-blur-sm overflow-hidden"
@@ -191,7 +191,7 @@ export function PerfBadge() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 12 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-x-4 bottom-4 sm:inset-auto sm:bottom-8 sm:right-8 sm:w-[420px] z-50 font-mono"
+              className="fixed inset-x-4 top-4 sm:inset-auto sm:top-24 sm:right-8 sm:w-[420px] z-50 font-mono"
               style={{ clipPath: "polygon(14px 0%,100% 0%,100% calc(100% - 14px),calc(100% - 14px) 100%,0% 100%,0% 14px)" }}
             >
               <div className="bg-void-950 border border-hex-600/50">
@@ -214,6 +214,25 @@ export function PerfBadge() {
                 </div>
 
                 <div className="p-5 space-y-5 overflow-y-auto max-h-[60vh] overscroll-contain">
+
+                  {/* ── Methodology banner ── */}
+                  <div className="flex gap-3 px-3 py-3 bg-void-900/60 border border-hex-600/25">
+                    <span className="text-cyan-glow text-sm flex-shrink-0 mt-0.5">📡</span>
+                    <div className="space-y-1">
+                      <p className="text-[10px] tracking-[0.25em] uppercase text-hex-300/70 font-mono">
+                        Cách đo hoạt động
+                      </p>
+                      <p className="text-[10px] text-hex-200/50 leading-relaxed">
+                        Dữ liệu được đọc trực tiếp từ{" "}
+                        <span className="text-hex-300/80">Browser Performance API</span>
+                        {" "}— API gốc của trình duyệt, sẵn có sau khi trang tải xong.
+                        Không có script theo dõi bên ngoài, không gửi về server.
+                        Kết quả phản ánh đúng tốc độ thực tế trên{" "}
+                        <span className="text-hex-300/80">thiết bị + mạng của bạn</span>
+                        {" "}tại thời điểm truy cập.
+                      </p>
+                    </div>
+                  </div>
 
                   {/* ── Section: Thời gian tải trang ── */}
                   <ModalSection title="Thời gian tải trang">
