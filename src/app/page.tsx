@@ -9,6 +9,7 @@ import { Abilities } from "@/components/sections/Abilities";
 import { Career } from "@/components/sections/Career";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
+import { DocPing } from "@/components/ui/DocPing";
 
 export default function HomePage() {
   return (
@@ -26,6 +27,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
+      <DocPing />
     </>
   );
 }
