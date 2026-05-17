@@ -10,6 +10,7 @@ import { Career } from "@/components/sections/Career";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
 import { DocPing } from "@/components/ui/DocPing";
+import { PerfBadge } from "@/components/ui/PerfBadge";
 
 export default function HomePage() {
   return (
@@ -28,6 +29,7 @@ export default function HomePage() {
       </main>
       <Footer />
       <DocPing />
+      <PerfBadge />
     </>
   );
 }
