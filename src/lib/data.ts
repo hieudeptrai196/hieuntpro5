@@ -13,6 +13,7 @@ export const siteConfig = {
   email: "hieulatoi1962@gmail.com",
   linkedin: "https://www.linkedin.com/in/hieunguyen196",
   location: "Hanoi",
+  siteUrl: "https://hieunt.site",
 } as const;
 
 export const strengths = [
