@@ -63,6 +63,7 @@ export const skills = {
     items: [
       { label: "Data Management", value: "MySQL, PostgreSQL, Index optimization, Database scaling" },
       { label: "Infrastructure & Connectivity", value: "Nginx, RESTful API, GraphQL, WebSocket" },
+      { label: "Cloud & CDN", value: "Cloudflare CDN, R2 Object Storage, Cache Rules, WAF, DDoS protection, DNS management" },
       { label: "Management Tools", value: "Git (Version Control), Jira (Project Management), Agile/Scrum" },
     ],
   },
@@ -71,15 +72,16 @@ export const skills = {
     icon: "E",
     items: [
       { label: "Frontend Technologies", value: "CSR & SSR, ReactJS (Next.js), Angular" },
-      { label: "Performance & UX", value: "Critical rendering path, Page load speed" },
-      { label: "AI Integration", value: "LLMs (ChatGPT, Gemini AI), AI-driven chatbots" },
+      { label: "Performance & UX", value: "Critical rendering path, Page load speed, Core Web Vitals optimization" },
+      { label: "AI in Daily Workflow", value: "Claude, ChatGPT, Gemini — code review, debugging, architecture planning, writing technical docs" },
+      { label: "AI Product Integration", value: "LLM API integration, AI-driven chatbots, prompt engineering for backend services" },
     ],
   },
   soft: {
     label: "Soft Skills & Communication",
     icon: "R",
     items: [
-      { label: "Languages", value: "English (technical documentation reading comprehension, professional communication)" },
+      { label: "Languages", value: "English (technical documentation reading comprehension, communication)" },
       { label: "Teamwork", value: "Cross-functional, system service coordination" },
       { label: "Client Collaboration", value: "Requirement discussion, technical reporting, solution hand-over" },
       { label: "Research & Innovation", value: "New technologies, AI integration, performance optimization" },

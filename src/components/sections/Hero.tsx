@@ -4,12 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { siteConfig, education } from "@/lib/data";
 import { cn } from "@/lib/cn";
-import dynamic from "next/dynamic";
 import Image from "next/image";
-
-const TechOrb = dynamic(() => import("@/components/ui/TechOrb").then((mod) => mod.TechOrb), {
-  ssr: false,
-});
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -45,11 +40,14 @@ const techRoster: TechItem[] = [
   { name: "React",      icon: "react" },
   { name: "Next.js",    icon: "nextdotjs" },
   { name: "Angular",    icon: "angular" },
-  { name: "MySQL", icon: "mysql" },
+  { name: "MySQL",      icon: "mysql" },
   { name: "PostgreSQL", icon: "postgresql" },
   { name: "Redis",      icon: "redis" },
   { name: "RabbitMQ",   icon: "rabbitmq" },
   { name: "JWT",        icon: "jsonwebtokens" },
+  { name: "Cloudflare", icon: "cloudflare" },
+  { name: "Claude",     icon: "anthropic" },
+  { name: "ChatGPT",    letter: "GPT" },
   { name: "Others",     letter: "···" },
 ];
 
@@ -137,11 +135,13 @@ function LobbyHeader() {
 /* ============================================================
    LEFT — Splash art with slider
    ============================================================ */
+const CDN = "https://cdn.hieunt.site";
+
 const portraits = [
-  { src: "/avatar.png",                                              label: "Portrait · 01" },
-  { src: "/mvp1.jpg",                                                label: "Portrait · 02" },
-  { src: "/z7448477960966_469309956b8dfe85acede9fb4dfe477b.jpg",    label: "Portrait · 03" },
-  { src: "/z7834164545883_bd839bc7d4862e6aa73ffce7a1a57d6c.jpg",    label: "Portrait · 04" },
+  { src: `${CDN}/avatar.jpg`,                                              label: "Portrait · 01" },
+  { src: `${CDN}/mvp1.jpg`,                                                label: "Portrait · 02" },
+  { src: `${CDN}/z7448477960966_469309956b8dfe85acede9fb4dfe477b.jpg`,    label: "Portrait · 03" },
+  { src: `${CDN}/z7834164545883_bd839bc7d4862e6aa73ffce7a1a57d6c.jpg`,    label: "Portrait · 04" },
 ];
 
 const AUTO_PLAY_MS = 4000;
@@ -683,8 +683,13 @@ function BackdropFX() {
         aria-hidden
         className="absolute top-1/2 inset-x-0 h-px bg-gradient-to-r from-transparent via-hex-600/30 to-transparent"
       />
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <TechOrb />
+      {/* Subtle rotating hex — CSS only, no Three.js */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-[0.04]">
+        <svg viewBox="0 0 400 400" className="w-[500px] h-[500px] animate-spin-slow">
+          <polygon points="200,20 360,110 360,290 200,380 40,290 40,110" fill="none" stroke="#c8aa6e" strokeWidth="1"/>
+          <polygon points="200,60 330,130 330,270 200,340 70,270 70,130" fill="none" stroke="#c8aa6e" strokeWidth="0.6"/>
+          <polygon points="200,100 300,155 300,245 200,300 100,245 100,155" fill="none" stroke="#0ac8b9" strokeWidth="0.4"/>
+        </svg>
       </div>
     </>
   );

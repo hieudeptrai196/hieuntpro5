@@ -10,23 +10,16 @@ import { m } from "framer-motion";
  * loader still finishes if the tab is throttled. The fade-out uses a plain
  * CSS opacity transition and a setTimeout-driven unmount for the same reason.
  */
-const DURATION_MS = 1800;
-const FADE_MS = 500;
+const DURATION_MS = 600;
+const FADE_MS = 300;
 
 export function HextechLoader() {
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
   const [unmounted, setUnmounted] = useState(false);
 
-  // Drive progress + lock body scroll
+  // Drive progress — no scroll lock so page renders behind loader
   useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-
     const start = Date.now();
     const interval = setInterval(() => {
       const t = Math.min(1, (Date.now() - start) / DURATION_MS);
@@ -35,21 +28,17 @@ export function HextechLoader() {
       if (t >= 1) clearInterval(interval);
     }, 50);
 
-    const finish = setTimeout(() => setDone(true), DURATION_MS + 180);
+    const finish = setTimeout(() => setDone(true), DURATION_MS + 100);
 
     return () => {
       clearInterval(interval);
       clearTimeout(finish);
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
     };
   }, []);
 
   // Fade out and unmount fully after fade
   useEffect(() => {
     if (!done) return;
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
     const t = setTimeout(() => setUnmounted(true), FADE_MS);
     return () => clearTimeout(t);
   }, [done]);

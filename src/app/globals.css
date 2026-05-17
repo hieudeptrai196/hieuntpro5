@@ -48,7 +48,7 @@
 html {
   background: var(--color-void-950);
   color: var(--color-hex-100);
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth — removed, Lenis handles this */
 }
 
 body {
@@ -222,6 +222,13 @@ body {
   50% { transform: translateY(-8px); }
 }
 .animate-drift { animation: drift 6s ease-in-out infinite; }
+
+/* Slow spin — replaces Three.js TechOrb */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 30s linear infinite; }
 
 /* Pulse glow */
 @keyframes pulse-glow {

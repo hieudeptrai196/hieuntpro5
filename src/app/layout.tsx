@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 const mono = JetBrains_Mono({
-  subsets: ["latin"],
+  subsets: ["latin"], // mono font — không cần Vietnamese subset
   variable: "--font-jetbrains",
   display: "swap",
 });
@@ -102,7 +102,7 @@ const jsonLd = {
   url: siteConfig.siteUrl,
   email: siteConfig.email,
   telephone: siteConfig.phone,
-  image: `${siteConfig.siteUrl}/avatar.png`,
+  image: "https://cdn.hieunt.site/avatar.jpg",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Hanoi",

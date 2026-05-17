@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    // Cho phép next/image load ảnh từ Cloudflare R2 CDN
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.hieunt.site",
+        pathname: "/**",
+      },
+    ],
   },
 
   // Security + cache headers
