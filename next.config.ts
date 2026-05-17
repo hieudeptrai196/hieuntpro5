@@ -46,6 +46,18 @@ const nextConfig: NextConfig = {
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
+      // HTML pages — cache tại Cloudflare edge 1 tiếng
+      // s-maxage: CDN cache, max-age=0: browser luôn revalidate để nhận bản mới sau purge
+      // stale-while-revalidate: Cloudflare trả cache cũ trong khi fetch bản mới ở background
+      {
+        source: "/(|document)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
     ];
   },
 };

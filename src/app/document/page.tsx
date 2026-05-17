@@ -184,6 +184,13 @@ const perfOptimizations: Optimization[] = [
     how: "Thêm <link rel=\"preload\" as=\"image\" fetchpriority=\"high\"> cho avatar.jpg vào thẳng <head> trong layout.tsx. Đồng thời thêm <link rel=\"preconnect\" href=\"https://cdn.hieunt.site\"> để browser thiết lập kết nối TCP/TLS đến CDN trước khi cần.",
     effect: "Ảnh hero (portrait slider đầu tiên) là LCP element — phần tử lớn nhất visible khi trang load. Nếu không preload, browser chỉ biết đến ảnh này sau khi parse xong HTML và CSS → mất ~200–500ms bổ sung. Preload hint báo browser tải ngay từ đầu, song song với các tài nguyên khác → LCP giảm ~200–400ms.",
   },
+  {
+    title: "Cache HTML trang tại Cloudflare Edge",
+    badge: "Hạ tầng",
+    impact: "TTFB ↓ ~120ms, không hit Vercel",
+    how: "Thêm header Cache-Control: public, max-age=0, s-maxage=3600, stale-while-revalidate=86400 cho route / và /document trong next.config.ts. Tạo Cloudflare Cache Rule: URI path là / hoặc /document → Cache Everything, Edge TTL 1 tiếng. Sau mỗi deploy: purge cache thủ công trên Cloudflare Dashboard.",
+    effect: "Trước đây HTML tĩnh (SSG) vẫn phải đi về Vercel mỗi request vì Cloudflare không cache HTML mặc định. s-maxage báo CDN cache bản HTML tại edge node. Từ request thứ 2: Browser → Cloudflare Edge → trả ngay (~10ms) thay vì → Vercel (~150ms). Browser luôn revalidate (max-age=0) để nhận bản mới ngay sau khi purge cache.",
+  },
 ];
 
 // ── Tối ưu SEO ──────────────────────────────────────────────────────────────
@@ -268,8 +275,8 @@ const infraDetails = [
   },
   {
     label: "Cache layers",
-    value: "3 lớp",
-    note: "Browser cache (max-age 1 năm cho assets) → Cloudflare edge cache → Vercel origin. Request thông thường không bao giờ chạm Vercel.",
+    value: "4 lớp",
+    note: "Browser cache (assets 1 năm, HTML revalidate) → Cloudflare edge (HTML 1h, ảnh 30 ngày, JS/CSS 1 năm) → Vercel CDN → Vercel origin. Request thông thường không bao giờ chạm Vercel origin.",
   },
 ];
 
