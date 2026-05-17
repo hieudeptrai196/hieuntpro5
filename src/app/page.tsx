@@ -15,7 +15,6 @@ import { DocPing }       from "@/components/ui/DocPing";
 import { PerfBadge }     from "@/components/ui/PerfBadge";
 import { ScrollTop }     from "@/components/ui/ScrollTop";
 import { SectionDots }   from "@/components/ui/SectionDots";
-import { SiteNotice }    from "@/components/ui/SiteNotice";
 
 export default function HomePage() {
   return (
@@ -44,7 +43,6 @@ export default function HomePage() {
       <ScrollTop />
       <DocPing />
       <PerfBadge />
-      <SiteNotice />
     </>
   );
 }
