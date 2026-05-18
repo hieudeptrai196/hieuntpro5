@@ -58,6 +58,9 @@ export const metadata: Metadata = {
     title: ogTitle,
     description: ogDescription,
     siteName: siteConfig.name,
+    firstName: "Hiếu",
+    lastName: "Nguyễn Thọ",
+    username: "hieunt",
     images: [
       {
         url: "/opengraph-image",
@@ -82,11 +85,17 @@ export const metadata: Metadata = {
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
   icons: {
     icon: "/logo.png",
-    apple: "/logo.png",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "msapplication-TileImage", url: "/logo.png" },
+    ],
   },
 };
 
@@ -148,6 +157,14 @@ export default function RootLayout({
       className={`${display.variable} ${inter.variable} ${mono.variable}`}
     >
       <head>
+        {/* Apple PWA */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="NTH Dev" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/* Tắt auto-detect số điện thoại trên iOS — tránh gạch chân số ngẫu nhiên */}
+        <meta name="format-detection" content="telephone=no" />
+        {/* Windows pin to taskbar */}
+        <meta name="msapplication-TileColor" content="#010a13" />
         {/* CDN preconnect — giảm latency cho mọi request đến cdn.hieunt.site */}
         <link rel="preconnect" href="https://cdn.hieunt.site" />
         {/* Preload ảnh hero (LCP element) — browser tải trước khi render */}

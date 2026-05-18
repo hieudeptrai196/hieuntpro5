@@ -197,6 +197,13 @@ const perfOptimizations: Optimization[] = [
 
 const seoOptimizations: Optimization[] = [
   {
+    title: "Meta tags đầy đủ — Google Bot & Apple Bot",
+    badge: "SEO",
+    impact: "Index tốt hơn, PWA chuẩn iOS",
+    how: "Bổ sung các thẻ còn thiếu vào layout.tsx: apple-mobile-web-app-capable, apple-mobile-web-app-title, apple-mobile-web-app-status-bar-style cho iOS PWA. Tạo apple-touch-icon.png 180×180px riêng cho iPhone. Thêm og:profile:firstName/lastName/username vì og:type=\"profile\" yêu cầu. Thêm max-video-preview: -1 cho googleBot. Thêm msapplication-TileColor cho Windows. Thêm format-detection: telephone=no tắt auto-detect số điện thoại trên iOS.",
+    effect: "Apple Bot (Applebot) crawl để index cho Spotlight Search và Safari Reader. Thiếu apple-mobile-web-app-capable → iOS không nhận diện site là PWA khi Add to Home Screen. apple-touch-icon 180×180 là kích thước chuẩn cho iPhone Retina — thiếu thì icon bị mờ hoặc dùng screenshot trang. og:profile fields giúp Facebook/LinkedIn hiểu đúng loại nội dung → rich card đẹp hơn khi share.",
+  },
+  {
     title: "Static Generation (SSG)",
     badge: "Hiệu năng",
     impact: "TTFB < 50ms",
@@ -476,7 +483,7 @@ export default function DocumentPage() {
         {/* Footer */}
         <footer className="pt-4 pb-2 border-t border-hex-600/20 text-[11px] font-mono text-hex-300/40 flex items-center justify-between flex-wrap gap-2">
           <span>hieunt.site · {siteConfig.name}</span>
-          <span>Cập nhật: 2026-05 · v2.1</span>
+          <span>Cập nhật: 2026-05 · v2.2</span>
         </footer>
       </div>
     </main>
