@@ -181,6 +181,7 @@ export default function RootLayout({
     <html
       lang="vi"
       className={`${display.variable} ${inter.variable} ${mono.variable}`}
+      suppressHydrationWarning
     >
       <head>
         {/* Apple PWA */}

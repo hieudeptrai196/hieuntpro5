@@ -332,9 +332,10 @@ function SplashPanel() {
             <Image
               src={p.src}
               alt={`Ảnh chân dung Nguyễn Thọ Hiếu (hieuntpro5) - ${p.label}`}
-              fill
-              sizes="25vw"
-              className="object-contain object-center bg-void-950"
+              width={80}
+              height={80}
+              loading="lazy"
+              className="object-contain object-center bg-void-950 w-full h-full"
             />
             {/* Dark wash on inactive */}
             {active !== i && <div className="absolute inset-0 bg-void-950/50" />}

@@ -112,13 +112,13 @@ function TimelineEntry({
           <div className="min-w-0 flex items-start gap-4">
             {/* Company logo */}
             {"logo" in exp && exp.logo && (
-              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 relative rounded-sm overflow-hidden bg-void-800 border border-hex-600/25 p-1">
+              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-sm overflow-hidden bg-void-800 border border-hex-600/25 p-1">
                 <Image
                   src={exp.logo as string}
                   alt={`${exp.company} logo`}
-                  fill
-                  sizes="48px"
-                  className="object-contain"
+                  width={48}
+                  height={48}
+                  className="object-contain w-full h-full"
                 />
               </div>
             )}
