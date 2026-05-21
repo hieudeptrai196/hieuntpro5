@@ -80,7 +80,7 @@ function TimelineEntry({
         <div className="sr-only" aria-hidden="false">
           <h4>Kinh nghiệm làm việc chi tiết tại {exp.company} - Lập trình viên Backend</h4>
           <p>
-            Vị trí: {exp.position} - Nguyễn Thọ Hiếu (hieuntpro5) hoạt động trong thời gian {exp.period}.
+            Vị trí: {exp.position} - Nguyễn Thọ Hiếu (hieuntprofile) hoạt động trong thời gian {exp.period}.
           </p>
           {exp.responsibilities && exp.responsibilities.length > 0 && (
             <div>

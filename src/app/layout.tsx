@@ -25,19 +25,19 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const ogTitle = "Nguyễn Thọ Hiếu (hieuntpro5) | Backend Developer & Software Engineer";
-const ogDescription = "Nguyễn Thọ Hiếu (hieuntpro5) - Lập trình viên Backend Developer (Node.js, PHP) tại Hà Nội với 3+ năm kinh nghiệm phát triển hệ thống hiệu năng cao, xử lý lượng truy cập lớn tại VNPT và Newwave Solutions.";
+const ogTitle = "Nguyễn Thọ Hiếu (hieuntprofile) | Backend Developer & Software Engineer";
+const ogDescription = "Nguyễn Thọ Hiếu (hieuntprofile) - Lập trình viên Backend Developer (Node.js, PHP) tại Hà Nội với 3+ năm kinh nghiệm phát triển hệ thống hiệu năng cao, xử lý lượng truy cập lớn tại VNPT và Newwave Solutions.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
     default: ogTitle,
-    template: `%s · Nguyễn Thọ Hiếu (hieuntpro5)`,
+    template: `%s · Nguyễn Thọ Hiếu (hieuntprofile)`,
   },
   description: ogDescription,
   keywords: [
     "Backend Developer", "Node.js", "NestJS", "PHP", "Laravel",
-    "Nguyễn Thọ Hiếu", "Nguyen Tho Hieu", "hieuntpro5", "hieudeptrai196", "NTH Dev",
+    "Nguyễn Thọ Hiếu", "Nguyen Tho Hieu", "hieuntprofile", "hieudeptrai196", "NTH Dev",
     "Software Engineer", "PostgreSQL", "Redis", "RabbitMQ", "High-performance systems", "Fullstack",
     "VNPT - Vietnam Posts and Telecommunications Group", "Newwave Solutions", "hieunt.site",
     "Lập trình viên Backend", "Lập trình viên Node.js", "Lập trình viên PHP", "Hà Nội"
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     firstName: "Hiếu",
     lastName: "Nguyễn Thọ",
-    username: "hieuntpro5",
+    username: "hieuntprofile",
     images: [
       {
         url: "/opengraph-image",
@@ -110,14 +110,14 @@ const jsonLd = {
   alternateName: [
     "Nguyen Tho Hieu",
     "hieunt",
-    "hieuntpro5",
+    "hieuntprofile",
     "hieudeptrai196",
     "NTH Dev",
     "nguyen tho hieu backend",
     "lập trình viên nguyễn thọ hiếu"
   ],
   jobTitle: "Senior Backend Developer / Software Engineer",
-  description: "Nguyễn Thọ Hiếu (hieuntpro5) - Lập trình viên Backend Developer (Node.js, PHP) chuyên nghiệp tại Hà Nội với 3+ năm kinh nghiệm phát triển phần mềm và tối ưu hóa hệ thống hiệu năng cao.",
+  description: "Nguyễn Thọ Hiếu (hieuntprofile) - Lập trình viên Backend Developer (Node.js, PHP) chuyên nghiệp tại Hà Nội với 3+ năm kinh nghiệm phát triển phần mềm và tối ưu hóa hệ thống hiệu năng cao.",
   url: siteConfig.siteUrl,
   email: siteConfig.email,
   telephone: siteConfig.phone,

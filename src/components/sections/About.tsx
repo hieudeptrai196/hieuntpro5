@@ -11,7 +11,7 @@ export function About() {
     >
       {/* Screen reader only - SEO content about his biography and educational background in EPU */}
       <div className="sr-only" aria-hidden="false">
-        <h2>Tiểu sử và Quá trình Phát triển của Nguyễn Thọ Hiếu (hieuntpro5)</h2>
+        <h2>Tiểu sử và Quá trình Phát triển của Nguyễn Thọ Hiếu (hieuntprofile)</h2>
         <p>
           Nguyễn Thọ Hiếu tốt nghiệp chuyên ngành Kỹ thuật Phần mềm (Software Engineering) tại Đại học Điện lực (Electric Power University - EPU) niên khóa 2018 - 2023.
           Từ một kỹ sư phần mềm trẻ năng nổ, tôi đã định hình sự nghiệp của mình như một Lập trình viên Backend (Backend Developer) giàu thực lực.
