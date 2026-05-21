@@ -191,6 +191,13 @@ const perfOptimizations: Optimization[] = [
     how: "Thêm header Cache-Control: public, max-age=0, s-maxage=3600, stale-while-revalidate=86400 cho route / và /document trong next.config.ts. Tạo Cloudflare Cache Rule: URI path là / hoặc /document → Cache Everything, Edge TTL 1 tiếng. Sau mỗi deploy: purge cache thủ công trên Cloudflare Dashboard.",
     effect: "Trước đây HTML tĩnh (SSG) vẫn phải đi về Vercel mỗi request vì Cloudflare không cache HTML mặc định. s-maxage báo CDN cache bản HTML tại edge node. Từ request thứ 2: Browser → Cloudflare Edge → trả ngay (~10ms) thay vì → Vercel (~150ms). Browser luôn revalidate (max-age=0) để nhận bản mới ngay sau khi purge cache.",
   },
+  {
+    title: "Tối ưu kích thước ảnh cố định & lazy load",
+    badge: "Hiệu năng",
+    impact: "CLS = 0, loại bỏ lỗi audit ảnh",
+    how: "Thay thế thuộc tính 'fill' bằng kích thước 'width' và 'height' rõ ràng cho 3 logo công ty trong Career (48x48) và 4 ảnh thumbnail trong Hero (80x80), đồng thời bật thuộc tính loading=\"lazy\" của Next.js.",
+    effect: "Trình duyệt biết trước không gian hiển thị của ảnh, ngăn ngừa hiện tượng dịch chuyển bố cục (Cumulative Layout Shift) khi tải trang. Giải quyết triệt để cảnh báo 'Images without dimensions' và 'Images not lazy loaded' từ các công cụ audit.",
+  },
 ];
 
 // ── Tối ưu SEO ──────────────────────────────────────────────────────────────
@@ -244,6 +251,20 @@ const seoOptimizations: Optimization[] = [
     impact: "LCP ↓, CLS = 0",
     how: "Dùng next/font/google thay vì link trực tiếp Google Fonts CDN. Next.js download font lúc build, tự host trên Vercel, thêm size-adjust để font fallback có cùng metrics với font thật.",
     effect: "Không có request sang fonts.googleapis.com → không bị CORS, không bị block bởi VPN/firewall. size-adjust đảm bảo layout không bị shift khi font swap → CLS = 0. Font được preload nên không block render.",
+  },
+  {
+    title: "Triển khai cấu trúc SEO ngầm (sr-only) đa ngôn ngữ",
+    badge: "SEO",
+    impact: "Tăng khả năng index từ khóa liên quan",
+    how: "Bổ sung các khối văn bản thô ẩn với người dùng nhưng hiển thị đầy đủ với Google Bot sử dụng class 'sr-only'. Tích hợp các nội dung mô tả tiểu sử song ngữ, chi tiết học thuật tại Đại học Điện lực (EPU), các biệt danh (hieunt, hieuntpro5, hieudeptrai196, NTH Dev), và các dự án/trách nhiệm công việc thực tế tại VNPT, Newwave Solutions, SmartOSC.",
+    effect: "Giúp Google Bot hiểu rõ danh tính, kinh nghiệm, trường học và định vị thương hiệu của Nguyễn Thọ Hiếu ngay cả khi người dùng gõ không dấu hoặc gõ các từ khóa tương tự. Đồng thời kéo tỷ lệ Text-to-HTML đạt chuẩn chất lượng.",
+  },
+  {
+    title: "Cấu hình HSTS (Strict-Transport-Security) & suppressHydrationWarning",
+    badge: "Bảo mật",
+    impact: "Đạt chuẩn bảo mật A+, fix lỗi local console",
+    how: "Cấu hình Strict-Transport-Security với max-age=1 năm trong next.config.ts cho mọi route. Đồng thời thêm suppressHydrationWarning vào thẻ html chính để tắt cảnh báo mismatch của Chrome extensions.",
+    effect: "Kích hoạt bảo mật HTTPS cưỡng bức cho toàn bộ tên miền phụ, ngăn chặn các cuộc tấn công trung gian (MITM). Khắc phục triệt để lỗi Hydration do extension làm sai lệch DOM lúc khởi chạy local.",
   },
 ];
 
@@ -483,7 +504,7 @@ export default function DocumentPage() {
         {/* Footer */}
         <footer className="pt-4 pb-2 border-t border-hex-600/20 text-[11px] font-mono text-hex-300/40 flex items-center justify-between flex-wrap gap-2">
           <span>hieunt.site · {siteConfig.name}</span>
-          <span>Cập nhật: 2026-05 · v2.2</span>
+          <span>Cập nhật: 2026-05 · v2.3</span>
         </footer>
       </div>
     </main>

@@ -76,17 +76,49 @@ function TimelineEntry({
       />
 
       <article className="relative bg-gradient-to-r from-void-900/80 via-void-900/50 to-transparent border border-hex-600/30 hover:border-hex-400/60 transition-colors clip-bevel-sm p-5 sm:p-6">
+        {/* Screen Reader Only / SEO optimization for responsibilities & projects */}
+        <div className="sr-only" aria-hidden="false">
+          <h4>Kinh nghiệm làm việc chi tiết tại {exp.company} - Lập trình viên Backend</h4>
+          <p>
+            Vị trí: {exp.position} - Nguyễn Thọ Hiếu (hieuntprofile) hoạt động trong thời gian {exp.period}.
+          </p>
+          {exp.responsibilities && exp.responsibilities.length > 0 && (
+            <div>
+              <h5>Nhiệm vụ và thành tựu chính:</h5>
+              <ul>
+                {exp.responsibilities.map((r, ri) => (
+                  <li key={ri}>
+                    <strong>{r.title}:</strong> {r.body}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {exp.projects && exp.projects.length > 0 && (
+            <div>
+              <h5>Các dự án tiêu biểu đã triển khai:</h5>
+              <ul>
+                {exp.projects.map((p, pi) => (
+                  <li key={pi}>
+                    <strong>{p.name}:</strong> {p.body}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
           <div className="min-w-0 flex items-start gap-4">
             {/* Company logo */}
             {"logo" in exp && exp.logo && (
-              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 relative rounded-sm overflow-hidden bg-void-800 border border-hex-600/25 p-1">
+              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-sm overflow-hidden bg-void-800 border border-hex-600/25 p-1">
                 <Image
                   src={exp.logo as string}
                   alt={`${exp.company} logo`}
-                  fill
-                  sizes="48px"
-                  className="object-contain"
+                  width={48}
+                  height={48}
+                  className="object-contain w-full h-full"
                 />
               </div>
             )}

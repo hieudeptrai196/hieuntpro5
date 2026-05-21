@@ -9,6 +9,23 @@ export function About() {
       id="lore"
       className="relative section-edge py-28 sm:py-36 px-5 sm:px-8"
     >
+      {/* Screen reader only - SEO content about his biography and educational background in EPU */}
+      <div className="sr-only" aria-hidden="false">
+        <h2>Tiểu sử và Quá trình Phát triển của Nguyễn Thọ Hiếu (hieuntprofile)</h2>
+        <p>
+          Nguyễn Thọ Hiếu tốt nghiệp chuyên ngành Kỹ thuật Phần mềm (Software Engineering) tại Đại học Điện lực (Electric Power University - EPU) niên khóa 2018 - 2023.
+          Từ một kỹ sư phần mềm trẻ năng nổ, tôi đã định hình sự nghiệp của mình như một Lập trình viên Backend (Backend Developer) giàu thực lực.
+          Với nền tảng học thuật vững chắc và tư duy thuật toán sắc bén, tôi tập trung thiết kế kiến trúc hệ thống bền vững, có khả năng mở rộng tốt dưới tải lượng truy cập khổng lồ.
+        </p>
+        <h3>Các phẩm chất và triết lý làm việc</h3>
+        <ul>
+          <li><strong>Kinh nghiệm thực tiễn:</strong> Dày dặn kinh nghiệm vận hành hệ thống viễn thông lớn tại VNPT và thương mại điện tử lớn tại Nhật Bản ở Newwave Solutions.</li>
+          <li><strong>Kỹ năng toàn diện:</strong> Nắm chắc kiến thức cả frontend và backend, mang lại tầm nhìn bao quát cho mọi vòng đời sản phẩm phần mềm.</li>
+          <li><strong>Tư duy đổi mới:</strong> Chủ động nghiên cứu và tích hợp các giải pháp trí tuệ nhân tạo (AI Chatbot, LLM API ChatGPT, Gemini) để nâng cao hiệu năng hệ thống.</li>
+          <li><strong>Phong cách chuyên nghiệp:</strong> Kiên trì, thích nghi nhanh và luôn hoàn thành cam kết chất lượng ngay cả dưới áp lực công việc lớn nhất.</li>
+        </ul>
+      </div>
+
       <div className="max-w-6xl mx-auto">
         <SectionLabel
           eyebrow="Lore // Chapter 01"

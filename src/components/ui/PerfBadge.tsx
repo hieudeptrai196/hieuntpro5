@@ -140,7 +140,7 @@ export function PerfBadge() {
                 >
                   <span className="w-1 h-1 rounded-full bg-cyan-glow animate-pulse" />
                   <span className="text-[9px] tracking-[0.3em] uppercase text-hex-300/60 hover:text-hex-300/90 transition-colors">
-                    Chẩn đoán hệ thống
+                    System Diagnostics
                   </span>
                 </button>
                 <button
@@ -201,7 +201,7 @@ export function PerfBadge() {
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-cyan-glow animate-pulse" />
                     <span className="text-[10px] tracking-[0.35em] uppercase text-hex-300/80">
-                      Báo cáo hiệu năng
+                      Performance Report
                     </span>
                   </div>
                   <button
@@ -220,108 +220,108 @@ export function PerfBadge() {
                     <span className="text-cyan-glow text-sm flex-shrink-0 mt-0.5">📡</span>
                     <div className="space-y-1">
                       <p className="text-[10px] tracking-[0.25em] uppercase text-hex-300/70 font-mono">
-                        Cách đo hoạt động
+                        Telemetry Protocol
                       </p>
                       <p className="text-[10px] text-hex-200/50 leading-relaxed">
-                        Dữ liệu được đọc trực tiếp từ{" "}
+                        Telemetry is read directly from the{" "}
                         <span className="text-hex-300/80">Browser Performance API</span>
-                        {" "}— API gốc của trình duyệt, sẵn có sau khi trang tải xong.
-                        Không có script theo dõi bên ngoài, không gửi về server.
-                        Kết quả phản ánh đúng tốc độ thực tế trên{" "}
-                        <span className="text-hex-300/80">thiết bị + mạng của bạn</span>
-                        {" "}tại thời điểm truy cập.
+                        {" "}— the native browser API available after load complete.
+                        No external tracking scripts are used, and no data is sent to any server.
+                        Results reflect actual real-time speeds on{" "}
+                        <span className="text-hex-300/80">your local device & network</span>
+                        {" "}at the moment of access.
                       </p>
                     </div>
                   </div>
 
-                  {/* ── Section: Thời gian tải trang ── */}
-                  <ModalSection title="Thời gian tải trang">
+                  {/* ── Section: Page Load Timing ── */}
+                  <ModalSection title="Page Load Timing">
                     <MetricRow
-                      label="Tổng thời gian tải"
+                      label="Total Load Time"
                       value={fmtMs(stats.loadMs)}
                       t={tier(stats.loadMs, 800, 2000)}
                       good="< 800 ms"
-                      desc="Thời gian từ khi bắt đầu điều hướng đến khi tất cả tài nguyên tải xong (sự kiện window.load)."
+                      desc="Duration from navigation start until all resources finish loading (window.load event)."
                     />
                     <MetricRow
-                      label="Thời gian đến byte đầu tiên (TTFB)"
+                      label="Time to First Byte (TTFB)"
                       value={stats.ttfbMs > 0 ? fmtMs(stats.ttfbMs) : "--"}
                       t={tier(stats.ttfbMs, 200, 600)}
                       good="< 200 ms"
-                      desc="Thời gian máy chủ Cloudflare phản hồi byte HTML đầu tiên. Càng thấp, server càng nhanh."
+                      desc="Time taken for the server/Cloudflare CDN to respond with the first byte of HTML."
                     />
                     <MetricRow
-                      label="DOM sẵn sàng"
+                      label="DOM Interactive"
                       value={stats.domReadyMs > 0 ? fmtMs(stats.domReadyMs) : "--"}
                       t={tier(stats.domReadyMs, 500, 1200)}
                       good="< 500 ms"
-                      desc="Khi trình duyệt đã phân tích xong HTML và cây DOM sẵn sàng, trước khi hình ảnh tải xong."
+                      desc="When the browser finishes parsing HTML and the DOM tree is ready, before images load."
                     />
                   </ModalSection>
 
-                  {/* ── Section: Chỉ số Web Vitals ── */}
-                  <ModalSection title="Chỉ số Web Vitals">
+                  {/* ── Section: Core Web Vitals ── */}
+                  <ModalSection title="Core Web Vitals">
                     {stats.fcpMs !== null ? (
                       <MetricRow
-                        label="Hiển thị nội dung đầu tiên (FCP)"
+                        label="First Contentful Paint (FCP)"
                         value={fmtMs(stats.fcpMs)}
                         t={tier(stats.fcpMs, 1800, 3000)}
                         good="< 1.8 s"
-                        desc="Thời điểm chữ hoặc hình ảnh đầu tiên xuất hiện trên màn hình. FCP tốt giúp người dùng thấy nội dung nhanh hơn."
+                        desc="The time when the first text or image is rendered. A good FCP reassures users that the page is loading."
                       />
                     ) : (
-                      <UnavailableRow label="Hiển thị nội dung đầu tiên (FCP)" />
+                      <UnavailableRow label="First Contentful Paint (FCP)" />
                     )}
                     {stats.lcpMs !== null ? (
                       <MetricRow
-                        label="Hiển thị phần tử lớn nhất (LCP)"
+                        label="Largest Contentful Paint (LCP)"
                         value={fmtMs(stats.lcpMs)}
                         t={tier(stats.lcpMs, 2500, 4000)}
                         good="< 2.5 s"
-                        desc="Khi phần tử lớn nhất (ảnh hero hoặc tiêu đề) hoàn tất render. Đây là chỉ số chất lượng tải trang chính của Google."
+                        desc="When the largest content element (e.g. hero image or heading) is rendered. Core Google quality metric."
                       />
                     ) : (
-                      <UnavailableRow label="Hiển thị phần tử lớn nhất (LCP)" />
+                      <UnavailableRow label="Largest Contentful Paint (LCP)" />
                     )}
                   </ModalSection>
 
-                  {/* ── Section: Tài nguyên ── */}
-                  <ModalSection title="Tài nguyên">
+                  {/* ── Section: Resources ── */}
+                  <ModalSection title="Resources">
                     <MetricRow
-                      label="Số file đã tải"
+                      label="Resource Count"
                       value={`${stats.resources} files`}
-                      desc="Tổng số request JS, CSS, font và hình ảnh mà trang thực hiện."
+                      desc="Total number of JS, CSS, font, and image requests made by this page session."
                     />
                     <MetricRow
-                      label="Dung lượng tải về"
+                      label="Transferred Size"
                       value={stats.transferKB > 0 ? `${stats.transferKB} KB` : "--"}
                       t={stats.transferKB > 0 ? tier(stats.transferKB, 300, 800) : undefined}
                       good="< 300 KB"
-                      desc="Tổng dữ liệu nén (gzip/brotli) tải qua mạng. Nhỏ hơn = nhanh hơn trên mobile."
+                      desc="Total compressed payload (Brotli/Gzip) sent over the network. Smaller is faster on mobile."
                     />
                   </ModalSection>
 
-                  {/* ── Section: Mạng ── */}
-                  <ModalSection title="Mạng">
+                  {/* ── Section: Connection ── */}
+                  <ModalSection title="Connection">
                     <MetricRow
-                      label="Loại kết nối"
+                      label="Connection Type"
                       value={stats.connection}
-                      desc="Loại mạng hiệu dụng được trình duyệt phát hiện qua Network Information API."
+                      desc="Effective network type detected by the browser using the Network Information API."
                     />
                     {stats.downlinkMbps !== null && (
                       <MetricRow
-                        label="Băng thông ước tính"
+                        label="Estimated Bandwidth"
                         value={`${stats.downlinkMbps} Mbps`}
-                        desc="Tốc độ tải xuống xấp xỉ được trình duyệt ước lượng."
+                        desc="Approximate real-time downlink speed estimated by your browser."
                       />
                     )}
                   </ModalSection>
 
                   {/* Footer note */}
                   <p className="text-[10px] text-hex-300/30 leading-relaxed pt-1 border-t border-hex-600/20">
-                    Số liệu được thu thập qua Performance API của trình duyệt trong phiên này.
-                    Giá trị có thể thay đổi tuỳ trạng thái cache và điều kiện mạng.
-                    Phục vụ bởi Vercel + Cloudflare CDN.
+                    Data collected via browser Performance APIs in this current session.
+                    Values vary depending on local cache state and real-time network latency.
+                    Served by Vercel + Cloudflare CDN.
                   </p>
                 </div>
               </div>
@@ -375,7 +375,7 @@ function MetricRow({
         <div className="flex items-center gap-2 flex-shrink-0">
           {good && t && (
             <span className={`text-[9px] ${tierColor[t]} opacity-60`}>
-              {t === "good" ? "✓ Tốt" : t === "ok" ? "~ Cần cải thiện" : "✗ Chậm"}
+              {t === "good" ? "✓ Good" : t === "ok" ? "~ Needs Work" : "✗ Slow"}
             </span>
           )}
           <span className={`text-sm font-bold tabular-nums ${t ? tierColor[t] : "text-hex-100"}`}>
@@ -385,7 +385,7 @@ function MetricRow({
       </div>
       <p className="text-[10px] text-hex-300/40 leading-relaxed">{desc}</p>
       {good && (
-        <p className="text-[9px] text-hex-300/25">Mục tiêu: {good}</p>
+        <p className="text-[9px] text-hex-300/25">Target: {good}</p>
       )}
     </div>
   );
@@ -395,7 +395,7 @@ function UnavailableRow({ label }: { label: string }) {
   return (
     <div className="px-3 py-2.5 border border-hex-600/15 bg-void-900/20 flex items-center justify-between">
       <span className="text-[10px] text-hex-200/40">{label}</span>
-      <span className="text-[10px] text-hex-300/25">Trình duyệt không hỗ trợ</span>
+      <span className="text-[10px] text-hex-300/25">Not supported by browser</span>
     </div>
   );
 }

@@ -59,6 +59,17 @@ export function Hero() {
       id="top"
       className="relative min-h-[100svh] flex flex-col overflow-hidden pt-20 pb-8"
     >
+      {/* Screen reader only — SEO keywords in Vietnamese */}
+      <div className="sr-only" aria-hidden="false">
+        <h1>Nguyễn Thọ Hiếu - Lập trình viên Backend Developer (Node.js, PHP) chuyên nghiệp tại Hà Nội</h1>
+        <h2>Kỹ sư phần mềm Nguyễn Thọ Hiếu (hieuntprofile) - NTH Dev</h2>
+        <p>
+          Chào mừng bạn đến với portfolio của Nguyễn Thọ Hiếu (biệt danh hieuntprofile hoặc hieudeptrai196). 
+          Tôi là một nhà phát triển backend (Backend Developer) chuyên thiết kế, phát triển và tối ưu hóa hệ thống phần mềm, 
+          cơ sở dữ liệu hiệu năng cao, các giải pháp API, hàng đợi RabbitMQ, bộ nhớ đệm Redis, và tích hợp AI Chatbot.
+        </p>
+      </div>
+
       <BackdropFX />
 
       {/* Top bar — lobby header */}
@@ -110,7 +121,7 @@ function LobbyHeader() {
             <span className="relative w-2 h-2 rounded-full bg-cyan-glow" />
           </span>
           <span className="text-hex-100/90">Champion Select</span>
-          <span className="hidden sm:inline text-hex-300/40">// Lobby_01</span>
+          <span className="hidden sm:inline text-hex-300/40">{"// Lobby_01"}</span>
         </div>
 
         <div className="flex items-center gap-4">
@@ -213,7 +224,7 @@ function SplashPanel() {
           >
             <Image
               src={portraits[active].src}
-              alt={`Nguyễn Thọ Hiếu - ${portraits[active].label}`}
+              alt={`Nguyễn Thọ Hiếu (hieuntprofile) - Lập trình viên Backend Developer tại Hà Nội - ${portraits[active].label}`}
               fill
               priority={active === 0}
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -320,10 +331,11 @@ function SplashPanel() {
           >
             <Image
               src={p.src}
-              alt={p.label}
-              fill
-              sizes="25vw"
-              className="object-contain object-center bg-void-950"
+              alt={`Ảnh chân dung Nguyễn Thọ Hiếu (hieuntprofile) - ${p.label}`}
+              width={80}
+              height={80}
+              loading="lazy"
+              className="object-contain object-center bg-void-950 w-full h-full"
             />
             {/* Dark wash on inactive */}
             {active !== i && <div className="absolute inset-0 bg-void-950/50" />}

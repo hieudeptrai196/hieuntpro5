@@ -26,7 +26,7 @@ export function EasterEgg() {
   const [quote] = useState(
     () => QUOTES[Math.floor(Math.random() * QUOTES.length)]
   );
-  const [progress, setProgress] = useState<string[]>([]);
+  const [, setProgress] = useState<string[]>([]);
 
   const dismiss = useCallback(() => setUnlocked(false), []);
 
@@ -142,7 +142,7 @@ export function EasterEgg() {
                 </m.div>
 
                 <p className="text-[9px] text-hex-300/25 tracking-[0.3em] uppercase">
-                  Nhấn bất kỳ phím nào để đóng
+                  Press any key to close
                 </p>
               </div>
             </div>

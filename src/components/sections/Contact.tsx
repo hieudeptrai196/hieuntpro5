@@ -110,7 +110,7 @@ export function Contact() {
                             exit={{   opacity: 0, y:  4 }}
                             className="text-cyan-glow"
                           >
-                            ✓ Đã copy
+                            ✓ Copied
                           </m.span>
                         ) : (
                           <m.span

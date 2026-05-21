@@ -11,9 +11,6 @@ const STORAGE_KEY = "hieunt_notice_v1";
  * Dễ custom: đổi nội dung NOTICE_* bên dưới.
  */
 
-const NOTICE_VI =
-  "Lần đầu mất chút thời gian để tải — nhưng từ lần sau trở đi, mọi tài nguyên đã được cache lại trong trình duyệt của bạn. Hãy thử F5 để cảm nhận sự khác biệt ⚡";
-
 const NOTICE_EN =
   "First visit takes a moment to load — on every return, assets are cached locally in your browser. Hit F5 to feel the difference ⚡";
 
@@ -60,7 +57,7 @@ export function SiteNotice() {
               </div>
               <button
                 onClick={dismiss}
-                aria-label="Đóng thông báo"
+                aria-label="Dismiss notice"
                 className="text-hex-300/30 hover:text-hex-300/80 transition-colors leading-none text-xs"
               >
                 ✕
@@ -69,14 +66,7 @@ export function SiteNotice() {
 
             {/* Content */}
             <div className="px-3.5 pt-3 pb-3.5 space-y-2.5">
-              {/* VI */}
               <p className="text-[10px] text-hex-200/65 leading-relaxed">
-                <span className="text-hex-300/40 mr-1">VI</span>
-                {NOTICE_VI}
-              </p>
-              {/* EN */}
-              <p className="text-[10px] text-hex-200/40 leading-relaxed">
-                <span className="text-hex-300/25 mr-1">EN</span>
                 {NOTICE_EN}
               </p>
 

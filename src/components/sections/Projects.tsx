@@ -198,7 +198,7 @@ function ProjectCard({
               <span className="block w-1.5 h-1.5 rotate-45 border border-hex-600/50" />
               <span>Internal System</span>
             </span>
-            <span className="text-hex-300/25">// NDA</span>
+            <span className="text-hex-300/25">{"// NDA"}</span>
           </div>
         )}
       </div>
