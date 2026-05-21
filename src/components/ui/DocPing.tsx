@@ -11,7 +11,7 @@ export function DocPing() {
   return (
     <Link
       href="/document"
-      aria-label="Xem tài liệu kỹ thuật"
+      aria-label="View technical documentation"
       className="fixed bottom-6 right-6 z-50 group"
     >
       {/* Ripple rings — giống sóng ping LOL */}
@@ -60,7 +60,7 @@ export function DocPing() {
 
       {/* Tooltip */}
       <span className="absolute bottom-full right-0 mb-2.5 px-2.5 py-1 rounded bg-void-900 border border-cyan-glow/30 text-[10px] font-mono text-cyan-glow whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 pointer-events-none">
-        Website này được build như thế nào ?
+        How was this website built?
       </span>
     </Link>
   );

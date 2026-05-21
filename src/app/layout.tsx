@@ -179,7 +179,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="vi"
+      lang="en"
       className={`${display.variable} ${inter.variable} ${mono.variable}`}
       suppressHydrationWarning
     >

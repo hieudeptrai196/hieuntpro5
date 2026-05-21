@@ -205,7 +205,7 @@ export default function OgImage() {
                 letterSpacing: "0.2em",
               }}
             >
-              <span>4 YRS EXP · OPEN TO RECRUIT</span>
+              <span>3+ YRS EXP · OPEN TO RECRUIT</span>
             </div>
           </div>
         </div>

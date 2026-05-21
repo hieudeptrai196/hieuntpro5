@@ -121,7 +121,7 @@ function LobbyHeader() {
             <span className="relative w-2 h-2 rounded-full bg-cyan-glow" />
           </span>
           <span className="text-hex-100/90">Champion Select</span>
-          <span className="hidden sm:inline text-hex-300/40">// Lobby_01</span>
+          <span className="hidden sm:inline text-hex-300/40">{"// Lobby_01"}</span>
         </div>
 
         <div className="flex items-center gap-4">
