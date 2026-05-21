@@ -25,26 +25,23 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const ogTitle = `${siteConfig.name} — ${siteConfig.title}`;
-const ogDescription = siteConfig.summary;
+const ogTitle = "Nguyễn Thọ Hiếu (hieuntpro5) | Backend Developer & Software Engineer";
+const ogDescription = "Nguyễn Thọ Hiếu (hieuntpro5) - Lập trình viên Backend Developer (Node.js, PHP) tại Hà Nội với 3+ năm kinh nghiệm phát triển hệ thống hiệu năng cao, xử lý lượng truy cập lớn tại VNPT và Newwave Solutions.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
     default: ogTitle,
-    template: `%s · ${siteConfig.name}`,
+    template: `%s · Nguyễn Thọ Hiếu (hieuntpro5)`,
   },
   description: ogDescription,
   keywords: [
     "Backend Developer", "Node.js", "NestJS", "PHP", "Laravel",
-    "Nguyễn Thọ Hiếu", "Software Engineer", "PostgreSQL", "Redis",
-    "RabbitMQ", "High-performance systems", "Fullstack",
-    "VNPT - Vietnam Posts and Telecommunications Group", "Newwave Solutions",
-    "hieunt.site",
+    "Nguyễn Thọ Hiếu", "Nguyen Tho Hieu", "hieuntpro5", "hieudeptrai196", "NTH Dev",
+    "Software Engineer", "PostgreSQL", "Redis", "RabbitMQ", "High-performance systems", "Fullstack",
+    "VNPT - Vietnam Posts and Telecommunications Group", "Newwave Solutions", "hieunt.site",
+    "Lập trình viên Backend", "Lập trình viên Node.js", "Lập trình viên PHP", "Hà Nội"
   ],
-  verification: {
-    google: "PASTE_YOUR_VERIFICATION_CODE_HERE", // ← thay bằng code từ Search Console
-  },
   authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
@@ -60,7 +57,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     firstName: "Hiếu",
     lastName: "Nguyễn Thọ",
-    username: "hieunt",
+    username: "hieuntpro5",
     images: [
       {
         url: "/opengraph-image",
@@ -110,8 +107,17 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: siteConfig.name,
-  jobTitle: "Backend Developer",
-  description: siteConfig.summary,
+  alternateName: [
+    "Nguyen Tho Hieu",
+    "hieunt",
+    "hieuntpro5",
+    "hieudeptrai196",
+    "NTH Dev",
+    "nguyen tho hieu backend",
+    "lập trình viên nguyễn thọ hiếu"
+  ],
+  jobTitle: "Senior Backend Developer / Software Engineer",
+  description: "Nguyễn Thọ Hiếu (hieuntpro5) - Lập trình viên Backend Developer (Node.js, PHP) chuyên nghiệp tại Hà Nội với 3+ năm kinh nghiệm phát triển phần mềm và tối ưu hóa hệ thống hiệu năng cao.",
   url: siteConfig.siteUrl,
   email: siteConfig.email,
   telephone: siteConfig.phone,
@@ -119,17 +125,32 @@ const jsonLd = {
   address: {
     "@type": "PostalAddress",
     addressLocality: "Hanoi",
+    addressRegion: "Hanoi",
     addressCountry: "VN",
   },
-  sameAs: [siteConfig.linkedin],
-  worksFor: {
-    "@type": "Organization",
-    name: "VNPT - Vietnam Posts and Telecommunications Group",
-    url: "https://vnpt.com.vn",
-  },
+  sameAs: [
+    siteConfig.linkedin,
+    "https://hieunt.site/"
+  ],
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "VNPT - Vietnam Posts and Telecommunications Group",
+      alternateName: "Tập đoàn Bưu chính Viễn thông Việt Nam",
+      url: "https://vnpt.com.vn",
+    },
+    {
+      "@type": "Organization",
+      name: "Newwave Solutions",
+      alternateName: "Công ty Cổ phần Công nghệ Newwave Solutions",
+      url: "https://newwave.vn",
+    }
+  ],
   alumniOf: {
     "@type": "EducationalOrganization",
-    name: "Electric Power University",
+    name: "Đại học Điện lực (Electric Power University)",
+    alternateName: "Electric Power University",
+    url: "https://epu.edu.vn",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Hanoi",
@@ -143,6 +164,11 @@ const jsonLd = {
     "RESTful API", "GraphQL", "WebSocket",
     "System Design", "High-performance Systems",
     "AI Chatbot Integration",
+    "Lập trình Backend",
+    "Tối ưu hóa cơ sở dữ liệu",
+    "Thiết kế hệ thống",
+    "Lập trình NestJS",
+    "Lập trình Laravel"
   ],
 };
 

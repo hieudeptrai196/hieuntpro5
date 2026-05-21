@@ -59,6 +59,17 @@ export function Hero() {
       id="top"
       className="relative min-h-[100svh] flex flex-col overflow-hidden pt-20 pb-8"
     >
+      {/* Screen reader only — SEO keywords in Vietnamese */}
+      <div className="sr-only" aria-hidden="false">
+        <h1>Nguyễn Thọ Hiếu - Lập trình viên Backend Developer (Node.js, PHP) chuyên nghiệp tại Hà Nội</h1>
+        <h2>Kỹ sư phần mềm Nguyễn Thọ Hiếu (hieuntpro5) - NTH Dev</h2>
+        <p>
+          Chào mừng bạn đến với portfolio của Nguyễn Thọ Hiếu (biệt danh hieuntpro5 hoặc hieudeptrai196). 
+          Tôi là một nhà phát triển backend (Backend Developer) chuyên thiết kế, phát triển và tối ưu hóa hệ thống phần mềm, 
+          cơ sở dữ liệu hiệu năng cao, các giải pháp API, hàng đợi RabbitMQ, bộ nhớ đệm Redis, và tích hợp AI Chatbot.
+        </p>
+      </div>
+
       <BackdropFX />
 
       {/* Top bar — lobby header */}
@@ -213,7 +224,7 @@ function SplashPanel() {
           >
             <Image
               src={portraits[active].src}
-              alt={`Nguyễn Thọ Hiếu - ${portraits[active].label}`}
+              alt={`Nguyễn Thọ Hiếu (hieuntpro5) - Lập trình viên Backend Developer tại Hà Nội - ${portraits[active].label}`}
               fill
               priority={active === 0}
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -320,7 +331,7 @@ function SplashPanel() {
           >
             <Image
               src={p.src}
-              alt={p.label}
+              alt={`Ảnh chân dung Nguyễn Thọ Hiếu (hieuntpro5) - ${p.label}`}
               fill
               sizes="25vw"
               className="object-contain object-center bg-void-950"
